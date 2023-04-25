@@ -12,8 +12,6 @@
 Console.Write("Введите пятизначное число: ");
 
 int InNum = Convert.ToInt32(Console.ReadLine());
-//int Num = InNum; 
-
 
 int firstNum = InNum % 10;
 int secondNum = (InNum % 100 - InNum % 10) / 10;
