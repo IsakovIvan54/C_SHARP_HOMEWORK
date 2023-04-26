@@ -13,23 +13,37 @@ Console.Write("Введите пятизначное число: ");
 
 int InNum = Convert.ToInt32(Console.ReadLine());
 
-int firstNum = InNum % 10;
-int secondNum = (InNum % 100 - InNum % 10) / 10;
-int fourNum = (InNum % 10000 - InNum % 1000) / 1000;
-int fifthNum = (InNum % 100000 - InNum % 10000) / 10000;
+int N = LenthNum(InNum);
+int[] Numbers = new int[N];
+int countMatch = 0;
 
-
-
-
-if(InNum > 9999 && InNum < 100000){
-     if (firstNum == fifthNum && secondNum == fourNum) {
-        Console.Write("Введенное число является палиндромом");
-    }
-    else {
-         Console.Write("Введенное число не является палиндромом");
-    }
-    
+// Функция для расчета количества цифр в числе
+int LenthNum(int ph){
+    int count = 0;
+        while(ph > 0) {
+        
+        
+        ph = (ph - ph % 10) / 10;
+        count++;
 }
-else {
-    Console.Write("Число не является пятизначным");
+    return count;
+}
+
+// Заполнение массива цифр числа
+for (int i = 0; i <= N-1; i++){
+    Numbers[i] =((InNum % (10 * Convert.ToInt32(Math.Pow(10, i))))  - (InNum % Convert.ToInt32(Math.Pow(10, i)))) / Convert.ToInt32(Math.Pow(10, i));
+}
+
+// Счетчик совпадений цифр в числе
+for (int j = 0; j < N/2; j++){
+    if (Numbers[j] == Numbers[N-1-j]){
+        countMatch++;
+    }
+}
+
+if(countMatch == N/2 || countMatch == N/2-1){
+    Console.Write("Введенное число является палиндромом");
+}
+else{
+    Console.Write("Введенное число не является палиндромом");
 }
