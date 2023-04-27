@@ -21,8 +21,7 @@ int countMatch = 0;
 int LenthNum(int ph){
     int count = 0;
         while(ph > 0) {
-        
-        
+            
         ph = (ph - ph % 10) / 10;
         count++;
 }
@@ -41,7 +40,7 @@ for (int j = 0; j < N/2; j++){
     }
 }
 
-if(countMatch == N/2 || countMatch == N/2-1){
+if(countMatch == N/2){
     Console.Write("Введенное число является палиндромом");
 }
 else{
