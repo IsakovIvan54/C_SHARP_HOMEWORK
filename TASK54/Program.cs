@@ -67,7 +67,7 @@ int[] Temp = new int[n];
 
         Temp[i] = matrix[j,i];
 
-        if (Temp[i] == MinNumStr[j]){
+        if (Temp[i] == MaxNumStr[j]){
             tmp = Temp[0];
             Temp[0] = Temp[i];
             Temp[i] = tmp;
@@ -77,7 +77,7 @@ int[] Temp = new int[n];
     
         for (int i = 0; i < n; i++){
 
-        if(Temp[i] == MaxNumStr[j]){
+        if(Temp[i] == MinNumStr[j]){
             tmp = Temp[n-1];
             Temp[n-1] = Temp[i];
             Temp[i] = tmp;
@@ -88,7 +88,7 @@ int[] Temp = new int[n];
 
         for (int h = 0; h <= i; h++)
         {   
-            if(Temp[h] >= Temp[h+1])
+            if(Temp[h] <= Temp[h+1])
             {
                 tmp = Temp[h];
                 Temp[h] = Temp[h+1];
